@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="is">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bensínverð</title>
+
+    <!-- Bootstrap og css-->
+    <link href="css/lokaverkefni.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Klukka -->
+    <script type="text/javascript">
+      function DisplayTime(){
+      if (!document.all && !document.getElementById)
+      return
+      timeElement=document.getElementById? document.getElementById("klukka"): document.all.tick2
+      var CurrentDate=new Date()
+      var hours=CurrentDate.getHours()
+      var minutes=CurrentDate.getMinutes()
+      var seconds=CurrentDate.getSeconds()
+      if (minutes<=9) minutes="0"+minutes;
+      if (seconds<=9) seconds="0"+seconds;
+      var currentTime=hours+":"+minutes+":"+seconds;
+      timeElement.innerHTML="<font style='color:rgb(255,255,255);text-shadow:0px -1px 4px rgb(0,0,0),0px 1px 4px rgb(0,0,0);font-size:1.3em;font-weight:bold;'>"+currentTime+"</b>"
+      setTimeout("DisplayTime()",1000)
+      }
+      window.onload=DisplayTime
+    </script>
+
+  </head>
+  <body>
+  <div id="container" class=".col-xs-12 .col-sm-6 .col-lg-8">
+    <div class="header">
+      <div class="headercontent">
+      <span id="klukka" class=".col-xs-6 .col-md-4"></span>
+      <!--a href="#" target="new"><img src="img/header.jpg" alt="Flug" class="logo"></a-->
+        <h1 id="title" class=".col-xs-12 .col-md-8">Olíustöðvar</h1>
+      </div>
+    </div>
+    <div id="ummig" class=".col-xs-4 .col-md-2">
+    <!--<button id="btn_en" class="btn btn-primary">English</button>-->
+    <button id="btn_gas" class="btn btn-primary">Dísel</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th id="company" scope="col">Fyrirtæki</th>
+                    <th id="name" scope="col">Stöðvar</th>
+                    <th id="Bensin95" scope="col">95 okt</th>
+                </tr>
+            </thead>
+            <tbody id="petrol-table">
+            </tbody>
+        </table>
+    </div>
+     <div id="ummig" class=".col-xs-4 .col-md-2">
+      <div id="map" style="width:550px;height:500px;background:yellow"></div>
+
+      <script>
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(65.5, -18.12),
+                zoom: 6,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk2Asa6kimPu1-8DnffCKezmD1TbdMiBE&callback=myMap"></script>
+    </div>
+</body>
+    </div>
+    <div class="col-xs-12" id="footer">
+      <div class="tfotur">
+        <p>Höfundur: Bjarni Þór Einarsson, Árni Hlynur og Þór Pétursson
+          <br/>ÞÁB
+        </p>
+      </div>
+      <div class="haegri">
+      <p>Hafa samband:
+        <a href="mailto:thab@hi.is" class="linkfotur">thab "at" hi.is</a>
+      </p>
+      </div>
+    </div>
+  </div>
+  </body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include indivclassuasl files as needed -->
+    <script src="js/index.js"></script>
+    <script src="node_modules/jquarry/dist/.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</html>
